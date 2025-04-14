@@ -51,7 +51,7 @@ numButtons.forEach(element => {
     element.addEventListener("click", function (e)
     {
         let buttonNumber = e.target.textContent;
-        if(display.length >= 8)
+        if(display.length >= 4)
         {
             alert("Maximum size for display reached");
         }
