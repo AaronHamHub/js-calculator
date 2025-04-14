@@ -41,9 +41,12 @@ let num2 = 0;
 let operator = '';
 let display = "";
 
+// Fetch DOM Elements
 const displayText = document.querySelector("#display");
+const clearButton = document.querySelector("#clearButton");
 const numButtons = document.querySelectorAll(".numButton");
 
+// Button Event Listeners
 numButtons.forEach(element => {
     element.addEventListener("click", function (e)
     {
@@ -59,3 +62,14 @@ numButtons.forEach(element => {
         }
     });
 });
+
+clearButton.addEventListener("click", () =>
+{
+    num1 = 0;
+    num2 = 0;
+    operator = '';
+    display = "";
+    
+    displayText.textContent = display;
+});
+
