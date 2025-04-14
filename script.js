@@ -36,9 +36,9 @@ function operate(op, a, b)
     }
 }
 
-let num1 = 0;
-let num2 = 0;
-let operator = '';
+let num1 = null;
+let num2 = null;
+let operator = null;
 let display = "";
 
 // Fetch DOM Elements
@@ -65,9 +65,9 @@ numButtons.forEach(element => {
 
 clearButton.addEventListener("click", () =>
 {
-    num1 = 0;
-    num2 = 0;
-    operator = '';
+    num1 = null;
+    num2 = null;
+    operator = null;
     display = "";
     
     displayText.textContent = display;
