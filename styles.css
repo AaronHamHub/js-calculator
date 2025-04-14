@@ -12,10 +12,13 @@ body {
     border: medium solid black;
 }
 
-#results p {
+#display {
     flex : 3.5;
     margin: 5px;
     border: thin solid black;
+    font-size: 100px;
+    font-weight: bold;
+    padding: 5px;
 }
 
 #results button {

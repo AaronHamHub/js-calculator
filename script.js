@@ -39,3 +39,23 @@ function operate(op, a, b)
 let num1 = 0;
 let num2 = 0;
 let operator = '';
+let display = "";
+
+const displayText = document.querySelector("#display");
+const numButtons = document.querySelectorAll(".numButton");
+
+numButtons.forEach(element => {
+    element.addEventListener("click", function (e)
+    {
+        let buttonNumber = e.target.textContent;
+        if(display.length >= 8)
+        {
+            alert("Maximum size for display reached");
+        }
+        else
+        {
+            display += buttonNumber;
+            displayText.textContent = display;
+        }
+    });
+});
