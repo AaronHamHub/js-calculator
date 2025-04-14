@@ -1,0 +1,46 @@
+body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#results {
+    display: flex;
+    flex-direction: row;
+    width: 600px;
+    height: 150px;
+    border: medium solid black;
+}
+
+#results p {
+    flex : 3.5;
+    margin: 5px;
+    border: thin solid black;
+}
+
+#results button {
+    flex: 1;
+    margin: 5px;
+    font-size: 100px;
+    font-weight: bold;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    height: 600px;
+    border: medium solid black;
+}
+
+.row {
+    display: flex;
+    flex:1
+}
+
+.row button {
+    flex: 1;
+    margin: 5px;
+    font-size: 100px;
+    font-weight: bold;
+}
