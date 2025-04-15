@@ -53,6 +53,7 @@ const operatorButtons = document.querySelectorAll(".operatorButton");
 numButtons.forEach(element => {
     element.addEventListener("click", function (e)
     {
+        // If we have a previous calculation and user enters a new number, we want to clear the display and start a new calculation
         if(num1 != null && operator == null) display = "";
         // Adds a number to the display
         let buttonNumber = e.target.textContent;
@@ -65,6 +66,7 @@ numButtons.forEach(element => {
 operatorButtons.forEach(element => {
     element.addEventListener("click", function (e)
     {
+        // If they try to click the operator button twice, it doesnt work.
         if(operator != null) return;
         let buttonOperator = e.target.textContent;
         // If we are not carrying over a number, evaluate the display
@@ -91,13 +93,15 @@ equalsButton.addEventListener("click", () =>
     // Make sure we have at least the first number and an operator
     if(num1 == null || operator == null) return;
 
+    // Store second number and get result
     num2 = parseInt(display);
     let result = operate(operator, num1, num2);
     result = Math.round(result * 10) / 10;
+
+    // Store result in num1 for future calculations, reset the other two
     num1 = result;
     operator = null;
     num2 = null;
-
     display = result.toString();
     displayText.textContent = display;
 });
