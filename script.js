@@ -30,6 +30,7 @@ function operate(op, a, b)
         case "*":
             return multiply(a, b);
         case "/":
+            if(b == 0) return Number.NaN;
             return divide(a, b);
         default:
             alert("VERY BAD");
@@ -48,26 +49,32 @@ const equalsButton = document.querySelector("#equalsButton");
 const numButtons = document.querySelectorAll(".numButton");
 const operatorButtons = document.querySelectorAll(".operatorButton");
 
-// Button Event Listeners
+// Number Button Event Listeners
 numButtons.forEach(element => {
     element.addEventListener("click", function (e)
     {
+        if(num1 != null && operator == null) display = "";
+        // Adds a number to the display
         let buttonNumber = e.target.textContent;
         display += buttonNumber;
         displayText.textContent = display;
     });
 });
 
+// Operator button Listeners
 operatorButtons.forEach(element => {
     element.addEventListener("click", function (e)
     {
+        if(operator != null) return;
         let buttonOperator = e.target.textContent;
-        num1 = parseInt(display);
+        // If we are not carrying over a number, evaluate the display
+        if(num1 == null) { num1 = parseInt(display); }
         operator = buttonOperator;
         display = "";
     });
 });
 
+// Clear button resets all variables back to default
 clearButton.addEventListener("click", () =>
 {
     num1 = null;
@@ -78,11 +85,15 @@ clearButton.addEventListener("click", () =>
     displayText.textContent = display;
 });
 
+// Equals button listener
 equalsButton.addEventListener("click", () =>
 {
-    // TODO: error catching
+    // Make sure we have at least the first number and an operator
+    if(num1 == null || operator == null) return;
+
     num2 = parseInt(display);
     let result = operate(operator, num1, num2);
+    result = Math.round(result * 10) / 10;
     num1 = result;
     operator = null;
     num2 = null;
